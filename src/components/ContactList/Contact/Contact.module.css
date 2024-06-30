@@ -1,0 +1,29 @@
+.listElContact {
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 15px;
+
+}
+
+.btnContact {
+  padding: 16px;
+  border: 3px solid black;
+  font-size: 20px;
+  padding: 10px;
+  width: auto;
+
+  &:hover {
+    background-color: red;
+    border-color: white;
+  }
+}
+
+.contactForm{
+  font-size: 20px;
+  margin: 10px;
+  font-weight: bold;
+}
