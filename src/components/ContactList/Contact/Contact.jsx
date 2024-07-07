@@ -1,29 +1,29 @@
-import { VscAccount } from "react-icons/vsc";
-import { FaPhoneAlt } from "react-icons/fa";
-import css from './Contact.module.css'
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../../redux/contactsSlice";
 
-const Contact = ({ contact }) => {
-    const dispatch = useDispatch()
-    
-    return (
-      <li className={css.listElContact}>
-        <div className={css.contactForm}>
-        <VscAccount/>
-          <p>{contact.name}</p>
-        </div>
-        <div className={css.contactForm}>
-        <FaPhoneAlt />
-        <p>{contact.number}</p>
-        </div>
-        <button className={css.btnContact} onClick={() => dispatch(deleteContact(contact.id))} >❌</button>
-      </li>
-    );
-  };
-  
-  export default Contact;
-  
-  
-  
-  
+import css from "./Contact.module.css";
+import { BsFillTelephoneFill, BsFillPersonFill } from "react-icons/bs";
+import { deleteContact } from "../../../redux/contacts/operations";
+
+export const Contact = ({ id, name, number }) => {
+  const dispatch = useDispatch();
+  const handleDelete = () => dispatch(deleteContact(id));
+
+  return (
+    <li>
+      <div>
+        <h3>
+          <BsFillPersonFill size={30} color="black" />
+          {name}
+        </h3>
+        <p>
+          <BsFillTelephoneFill size={30} color="black" />
+          {number}
+        </p>
+      </div>
+
+      <button onClick={handleDelete} type="submit">
+        🗑️
+      </button>
+    </li>
+  );
+};

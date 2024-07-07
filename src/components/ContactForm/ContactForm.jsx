@@ -1,61 +1,51 @@
-import { useId } from "react";
+import { useDispatch } from "react-redux";
+// import { addContact } from "../../redux/contacts/operations.js";
 import css from "./ContactForm.module.css";
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import * as Yup from "yup";
-import { useDispatch } from 'react-redux';
-import { addContact } from "../../redux/contactsSlice";
-import { nanoid } from "@reduxjs/toolkit";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+// import {contactFormSchema} from '../../schemas/contactFormSchema.js'
 
 
-const ContactForm = () => {
-    const dispatch = useDispatch();
 
-  const initialValues={
-    name: " ",
-    number: " ",
-  }
+export default function ContactForm() {
+  const dispatch = useDispatch();
 
-  const uniqUserId = useId();
-  const uniqNumberId = useId();
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().min(2, 'Min 2 sumbol 🙂').max(50, 'Max 50 sumbol 😯').required('required❗'),
-    number: Yup.string().min(2,'Min 2 sumbol 🙂').max(50, 'Max 50 sumbol 😯').required('required❗'),
-  });
-
-
-  const onSubmit = (contact, { resetForm }) => {
-    dispatch(addContact ({
-        id: nanoid(),
-        name: contact.name,
-        number: contact.number,
-  }))
-  resetForm()
-  }
-
+  const handleSubmit = (values, action) => {
+    dispatch(addContact(values));
+    action.resetForm();
+  };
 
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-      <Form>
-        <div className={css.formEl}>
-          <div className={css.formLbl}>
-            <label htmlFor={uniqUserId} className={css.formName}>Name</label>
-            <br />
-            <Field id={uniqUserId} type="text" name="name" />
-            <br/>
-            <ErrorMessage name="name"/>
-          </div>
-          <div className={css.formLbl}>
-            <label htmlFor={uniqNumberId} className={css.formName}> Number</label>
-            <br />
-            <Field id={uniqNumberId} type="text" name="number" />
-            <br/>
-            <ErrorMessage name="number"/>
-          </div>
-          <button type="submit" className={css.formBtn}>Add contact</button>
-        </div>
+    <Formik
+      initialValues={{
+        name: "",
+        number: "",
+      }}
+      validationSchema={contactFormSchema}
+      onSubmit={handleSubmit}
+    >
+      <Form autoComplete="off">
+        <label>
+          Name
+          <Field
+            type="text"
+            name="name"
+            placeholder="Name Surname"
+          />
+        </label>
+        <ErrorMessage name="name" component="span" />
+        <label>
+          Number
+          <Field
+            type="tel"
+            name="number"
+            placeholder="000-00-00"
+          />
+        </label>
+        <ErrorMessage name="number" component="span" />
+        <button type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );
 }
-export default ContactForm;
