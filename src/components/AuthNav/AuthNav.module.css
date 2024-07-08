@@ -1,15 +1,19 @@
 .link {
     text-decoration: none;
-    color: #8d8c8d;
-    font-size: 18px;
+    color: white;
+    font-size: 20px;
     font-weight: 700;
     padding: 12px;
   }
   .link:hover {
-    color: rgb(117, 29, 189);
+    color: rgb(74, 6, 77);
+    font-size: 24px;
   }
+
   .isActive {
-    color: rgb(121, 59, 192);
+    color: rgb(74, 6, 77);
+    font-size: 24px; 
+    text-decoration: underline;
   }
   
   .navAuth {

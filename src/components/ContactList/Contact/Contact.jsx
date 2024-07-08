@@ -2,13 +2,14 @@ import { useDispatch } from "react-redux";
 
 import { BsFillTelephoneFill, BsFillPersonFill } from "react-icons/bs";
 import { deleteContact } from "../../../redux/contacts/operations";
+import css from './Contact.module.css'
 
 export const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContact(id));
 
   return (
-    <li>
+    <li className={css.contactItem}>
       <div>
         <h3>
           <BsFillPersonFill size={30} color="black" />
@@ -20,8 +21,8 @@ export const Contact = ({ id, name, number }) => {
         </p>
       </div>
 
-      <button onClick={handleDelete} type="submit">
-        🗑️
+      <button className={css.delContact} onClick={handleDelete} type="submit">
+        ❌
       </button>
     </li>
   );

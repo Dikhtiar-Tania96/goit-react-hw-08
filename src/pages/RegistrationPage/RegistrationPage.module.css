@@ -1,0 +1,10 @@
+.registrationDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  .pageTitle{
+      color: rgba(162, 34, 201);
+  }

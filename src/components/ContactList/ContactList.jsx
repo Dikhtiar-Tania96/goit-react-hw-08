@@ -6,6 +6,7 @@ import {
   selectLoading,
 } from "../../redux/contacts/selectors";
 import Loader from "../Loader/Loader";
+import css from './ContactList.module.css'
 
 export default function ContactList() {
   const contacts = useSelector(selectFilteredContacts);
@@ -13,7 +14,7 @@ export default function ContactList() {
   const error = useSelector(selectError);
 
   return (
-    <ul>
+    <ul className={css.list}>
       {isLoading && !error && <Loader />}
       {error && <p>Oops, something went wrong! Please, try again</p>}
       {contacts.map(({ id, name, number }) => (

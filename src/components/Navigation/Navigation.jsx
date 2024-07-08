@@ -14,16 +14,16 @@ export default function Navigation() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <nav>
-      <div>
+    <nav className={css.navNavigation}>
+      <div className={css.composition}>
         <PageTitle>Phonebook</PageTitle>
       </div>
-      <div >
-        <NavLink to="/">
-          <span >Home</span>
+      <div className={css.navigation}>
+        <NavLink  className={makeLinksClass} to="/">
+          <span className={css.accent}>Home</span>
         </NavLink>
         {isLoggedIn && (
-          <NavLink  to="/contacts">
+          <NavLink  className={makeLinksClass}  to="/contacts">
             Contacts
           </NavLink>
         )}

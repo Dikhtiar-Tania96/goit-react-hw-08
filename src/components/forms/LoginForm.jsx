@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations.js";
 import { loginFormSchema } from "../../schemas/loginFormSchema.js";
+import css from './LoginForm.module.css'
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -20,20 +21,22 @@ export default function LoginForm() {
       validationSchema={loginFormSchema}
       onSubmit={handleSubmit}
     >
-      <Form  autoComplete="off">
-        <label >
+      <Form className={css.form} autoComplete="off">
+        <label  className={css.label}>
           Email
           <Field
+          className={css.input}
             type="email"
             name="email"
             placeholder="Enter your email"
             autoComplete="off"
           />
-          <ErrorMessage name="email" component="span"  />
+          <ErrorMessage name="email" component="span"  className={css.error} />
         </label>
-        <label >
+        <label  className={css.label}>
           Password
           <Field
+          className={css.input}
             type="password"
             name="password"
             placeholder="Enter your password"
@@ -42,9 +45,10 @@ export default function LoginForm() {
           <ErrorMessage
             name="password"
             component="span"
+            className={css.error}
           />
         </label>
-        <button  type="submit">
+        <button  className={css.btn} type="submit">
           Log In
         </button>
       </Form>

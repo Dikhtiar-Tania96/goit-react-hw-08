@@ -1,0 +1,8 @@
+.headerBox{
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 10px 1px;
+    background-color: rgba(206, 14, 236, 0.6);
+    margin-bottom: 70px;
+     
+  }
