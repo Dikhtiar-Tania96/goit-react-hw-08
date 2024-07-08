@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-// import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import css from "./Navigation.module.css";
 import clsx from "clsx";
-// import PageTitle from "../PageTitle/PageTitle";
+import PageTitle from "../PageTitle/PageTitle";
 
 
 const makeLinksClass = ({ isActive }) => {

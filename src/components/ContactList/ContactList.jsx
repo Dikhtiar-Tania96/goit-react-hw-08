@@ -5,7 +5,6 @@ import {
   selectFilteredContacts,
   selectLoading,
 } from "../../redux/contacts/selectors";
-// import css from "./ContactList.module.css";
 import Loader from "../Loader/Loader";
 
 export default function ContactList() {

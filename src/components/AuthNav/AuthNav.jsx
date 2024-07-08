@@ -7,7 +7,7 @@ const makeLinksClass = ({ isActive }) => {
 };
 export default function AuthNav() {
   return (
-    <div className={css.navAuth}>
+    <div >
       <NavLink className={makeLinksClass} to="/register">
         Register
       </NavLink>

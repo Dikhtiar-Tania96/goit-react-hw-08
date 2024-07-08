@@ -1,0 +1,20 @@
+.link {
+    text-decoration: none;
+    color: #8d8c8d;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 12px;
+  }
+  .link:hover {
+    color: rgb(117, 29, 189);
+  }
+  .isActive {
+    color: rgb(121, 59, 192);
+  }
+  
+  .navAuth {
+    margin-right: 20px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }

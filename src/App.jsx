@@ -1,20 +1,20 @@
 import { lazy, useEffect } from "react";
-import Layout from "./Layout/Layout";
 import { Route, Routes } from "react-router-dom";
-// import { RestrictedRoute } from "./RestrictedRoute";
-// import { PrivateRoute } from "./PrivateRoute";
+import { PrivateRoute } from "PrivateRoute";
 import { useDispatch, useSelector } from "react-redux";
-// import { selectIsRefreshing } from "../redux/auth/selectors";
-// import { refreshUser } from "../redux/auth/operations";
 import { Suspense } from "react";
 import './App.css';
+import Layout from "./components/Layout/Layout.jsx";
+// import { RestrictedRoute } from "../RestrictedRoute";
+import { selectIsRefreshing } from "./redux/auth/selectors.js";
+import { refreshUser } from "./redux/auth/operations.js";
 
-const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
-const RegistrationPage = lazy(() =>
-  import("../pages/RegistrationPage/RegistrationPage")
-);
-const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage.jsx"));
-const ContactsPage = lazy(() => import("../pages/ContactPage/ContactsPage.jsx"));
+// const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+// const RegistrationPage = lazy(() =>
+//   import("../pages/RegistrationPage/RegistrationPage")
+// );
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage.jsx"));
+const ContactsPage = lazy(() => import("./pages/ContactPage/ContactsPage.jsx"));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export default function App() {
     <Layout>
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage/>} />
           <Route
             path="/register"
             element={
