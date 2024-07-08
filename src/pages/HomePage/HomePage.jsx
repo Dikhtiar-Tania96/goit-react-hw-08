@@ -1,7 +1,5 @@
-// import PageTitle from "../../components/PageTitle/PageTitle";
-
-import css from "./HomePage.module.css";
-// import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 

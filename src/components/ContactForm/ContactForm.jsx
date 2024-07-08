@@ -3,8 +3,6 @@ import { addContact } from "../../redux/contacts/operations.js";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import {contactFormSchema} from '../../schemas/contactFormSchema.js'
 
-
-
 export default function ContactForm() {
   const dispatch = useDispatch();
 
